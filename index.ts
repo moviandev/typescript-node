@@ -5,9 +5,14 @@ import routes from './src/routes/crmRoutes';
 
 const app = express();
 const PORT: number = 3000;
+const atlasUser: string = 'movian';
+const atlasPassowrd: string = 'datatest';
 
-const db: string =
-  'mongodb://movian:datatest@linkedinproject-shard-00-00-8w1w5.mongodb.net:27017,linkedinproject-shard-00-01-8w1w5.mongodb.net:27017,linkedinproject-shard-00-02-8w1w5.mongodb.net:27017/test?ssl=true&replicaSet=linkedinProject-shard-0&authSource=admin&retryWrites=true&w=majority';
+const dataConnection = (user: string, password: string): string => {
+  return `mongodb://${user}:${password}@linkedinproject-shard-00-00-8w1w5.mongodb.net:27017,linkedinproject-shard-00-01-8w1w5.mongodb.net:27017,linkedinproject-shard-00-02-8w1w5.mongodb.net:27017/test?ssl=true&replicaSet=linkedinProject-shard-0&authSource=admin&retryWrites=true&w=majority`;
+};
+
+const db: string = dataConnection(atlasUser, atlasPassowrd);
 
 // mongoose connection
 mongoose.connect(db, {
