@@ -37,9 +37,21 @@ function nameCreator<T>(nam: T): T {
 
 let myName = nameCreator<string>('Matheus');
 
+// Declaration merging
+interface Warriors {
+  weapon: string;
+  skills: number;
+}
+
+interface Warriors {
+  name: string;
+}
+
+let ninja: Warriors = { weapon: 'shuriken', skills: 5, name: 'Sasuke' };
+
 // serving static files
 app.use(express.static('public'));
 
-app.get('/', (req, res) => res.send(messages.messagePrint()));
+app.get('/', (req, res) => res.send(ninja));
 
 app.listen(PORT, () => console.log(myName, messages.messagePrint()));
