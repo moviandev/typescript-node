@@ -8,9 +8,12 @@ const PORT = 3000;
 
 // mongoose connection
 mongoose.Promise = global.Promise;
-mongoose.connect('mongodb+srv://movian:testdata@linkedinproject-8w1w5.mongodb.net/test?retryWrites=true&w=majority', {
-    useMongoClient: true
-});
+mongoose.connect(
+  'mongodb://movian:datatest@linkedinproject-shard-00-00-8w1w5.mongodb.net:27017,linkedinproject-shard-00-01-8w1w5.mongodb.net:27017,linkedinproject-shard-00-02-8w1w5.mongodb.net:27017/test?ssl=true&replicaSet=linkedinProject-shard-0&authSource=admin&retryWrites=true&w=majority',
+  {
+    useMongoClient: true,
+  },
+);
 
 // bodyparser setup
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -22,9 +25,7 @@ routes(app);
 app.use(express.static('public'));
 
 app.get('/', (req, res) =>
-    res.send(`Node and express server is running on port ${PORT}`)
+  res.send(`Node and express server is running on port ${PORT}`),
 );
 
-app.listen(PORT, () =>
-    console.log(`your server is running on port ${PORT}`)
-);
+app.listen(PORT, () => console.log(`your server is running on port ${PORT}`));
