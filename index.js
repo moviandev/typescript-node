@@ -2,14 +2,13 @@ import express from 'express';
 import mongoose from 'mongoose';
 import bodyParser from 'body-parser';
 import routes from './src/routes/crmRoutes';
-import config from 'dotenv';
 
 const app = express();
 const PORT = 3000;
 
 // mongoose connection
 mongoose.Promise = global.Promise;
-mongoose.connect('<insert your own credentials>', {
+mongoose.connect('mongodb+srv://movian:testdata@linkedinproject-8w1w5.mongodb.net/test?retryWrites=true&w=majority', {
     useMongoClient: true
 });
 
