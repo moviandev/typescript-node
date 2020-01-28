@@ -31,7 +31,7 @@ routes(app);
 
 // generics
 
-function nameCreator<T>(name: T): T {
+function nameCreator<T>(nam: T): T {
   return name;
 }
 
