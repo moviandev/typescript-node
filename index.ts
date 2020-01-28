@@ -32,7 +32,7 @@ routes(app);
 // generics
 
 function nameCreator<T>(nam: T): T {
-  return name;
+  return nam;
 }
 
 let myName = nameCreator<string>('Matheus');
