@@ -1,7 +1,5 @@
 import * as mongoose from 'mongoose';
 
-const Schema = mongoose.Schema;
-
 const schema: any = {
   firstName: {
     type: String,
